@@ -1,13 +1,247 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap');
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-display: swap;
+  }
+  :root,
+  body {
+    font-size: 14px;
+    font-weigth: 400;
+    @apply text-bpcidark;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(
+      299.64deg,
+      #c3d1e4 -0.02%,
+      #dde7f3 54.14%,
+      #d4e0ed 100.43%
+    );
+
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .btn {
+    @apply rounded-xl shadow-md px-2 py-2 lg:px-4;
+  }
+  button:active {
+    @apply duration-100 scale-90 transition-all transform;
+  }
+  .btn-sm {
+    @apply text-mmd;
+  }
+  #box {
+    background: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(7%, #6565e7),
+      color-stop(74%, #af67e9)
+    );
+    background: linear-gradient(0deg, #6565e7 7%, #af67e9 74%);
+  }
+  #Landing,
+  .navBack {
+    background: radial-gradient(
+        circle at -30% 200%,
+        rgba(28, 50, 242, 0.5) 20.73%,
+        rgba(225, 109, 3, 0.2) 39.33%,
+        rgba(60, 74, 200, 0.2) 80.89%,
+        rgba(252, 162, 79, 0.5) 98.82%
+      ),
+      linear-gradient(
+        209.03deg,
+        rgba(79, 83, 252, 0.5) 17.84%,
+        rgba(252, 162, 79, 0.125) 101.69%
+      );
+  }
+  #Landing1 {
+    background: radial-gradient(
+        circle at -30% 200%,
+        rgba(28, 50, 242, 0.5) 20.73%,
+        rgba(225, 109, 3, 0.1) 39.33%,
+        rgba(60, 74, 200, 0.1) 80.89%,
+        rgba(252, 162, 79, 0.5) 98.82%
+      ),
+      linear-gradient(
+        209.03deg,
+        rgba(79, 83, 252, 0.5) 17.84%,
+        rgba(252, 162, 79, 0.125) 101.69%
+      );
+    @apply animate-fancyRadius;
+  }
+  .btn-active {
+    @apply text-bpcigray;
+  }
+  .btn-primary {
+    @apply bg-bpciblue text-bpcigray;
+  }
+  .btn-tertiary {
+    @apply bg-transparent border-bpcidark bg-opacity-20 text-bpciblue text-opacity-30;
+  }
+  p {
+    @apply text-mlg lg:text-dmd text-bpcidark font-medium text-opacity-70;
+  }
+  .pricingCard {
+    background: radial-gradient(
+      circle at 30% 150%,
+      #ffffff 50%,
+      rgba(252, 232, 250, 0.8) 100%
+    );
+    border: 1px solid rgba(246, 249, 252, 1);
+    box-shadow: 0px 4px 899px 0px rgba(239, 97, 19, 0, 8);
+    @apply rounded-xl;
+  }
+  input,
+  select {
+    @apply h-12 w-full mt-2 rounded-md border border-opacity-20 px-4 border-bpcidark mx-auto outline-none;
+  }
+  input:not(input[type="radio"]):focus {
+    @apply border-2 border-bpciorange;
+  }
+
+  input:not(input[type="radio"]):valid {
+    @apply border-bpcigreen;
+  }
+  input[type="checkbox"],
+  input[type="radio"] {
+    @apply appearance-none cursor-pointer p-0 h-5 w-5 inline-block relative;
+  }
+
+  input[type="radio"] {
+    @apply rounded-full;
+  }
+  input[type="checkbox"]:checked,
+  input[type="radio"]:checked {
+    @apply bg-bpcigreen outline-none;
+  }
+  input[type="radio"]:checked::before {
+    content: "";
+    @apply bg-bpcigray transform translate-x-1/2 translate-y-1/2 block h-1/2 w-1/2 rounded-full absolute;
+  }
+
+  input[type="radio"]:checked::before {
+    content: "";
+    @apply bg-bpcigray transform translate-x-1/2 translate-y-1/2 block h-1/2 w-1/2 rounded-full absolute;
+  }
+
+  input[type="checkbox"] + label,
+  input[type="radio"] + label {
+    @apply inline-block w-10/12 cursor-pointer;
+  }
+
+  textarea {
+    @apply h-24 w-full rounded-xl border border-opacity-20 px-4 border-bpcidark;
+  }
+  label {
+    @apply text-mmd text-bpcidark font-bold text-opacity-80;
+  }
+  h1 {
+    @apply text-mH1 font-bold lg:text-dH1 text-bpcidark text-opacity-90;
+  }
+  h2 {
+    @apply text-mH2 lg:text-dH2 text-bpcidark font-bold text-opacity-90;
+  }
+  h3 {
+    @apply text-mH3 lg:text-dH3 text-bpcidark font-bold text-opacity-90;
+  }
+  h4 {
+    @apply text-mST lg:text-dST font-bold text-bpcidark text-opacity-90;
+  }
+  #webDev {
+    clip-path: polygon(0% 5%, 100% 0%, 100% 95%, 0% 100%);
+  }
+  .hideScroll::-webkit-scrollbar {
+    display: none;
+  }
+  .hideScroll {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .stepStatus {
+    @apply bg-gradient-to-bl h-2 from-bpciblue to-bpciorange transition-all duration-200 origin-left text-bpcigray transform scale-75 w-8 p-1 text-opacity-0 rounded-full text-msm outline-none cursor-pointer;
+  }
+  .stepStatus.active {
+    @apply bg-gradient-to-bl h-8 from-bpciblue to-bpciorange text-bpcigray  scale-100;
+  }
+  .stepStatus.passed {
+    @apply bg-gradient-to-bl from-bpcigreen to-bpcigreen text-bpcigreen h-2 text-opacity-0;
+  }
+  .docslinks ~ li {
+    @apply block p-2;
+  }
+  .docslinks {
+    @apply mx-4 block max-w-max;
+  }
+  .docslinks::after {
+    content: "";
+    @apply h-0.5 w-full max-w-min block transform duration-500 scale-0 transition-all absolute bg-bpciblue rounded-full;
+  }
+  .docslinks.text-bpciblue::after {
+    @apply scale-100 origin-center;
+  }
+  table td,
+  th {
+    @apply border text-center p-1 border-bpcidark border-opacity-40;
+  }
+  table:not(.docs) td {
+    max-width: 120px;
+    @apply overflow-auto;
+  }
+  table {
+    @apply mx-auto;
+  }
+  table.docs td,
+  table.docs th {
+    @apply w-28 md:w-36;
+  }
+  code[class*="language-code"] {
+    @apply bg-opacity-20 font-medium font-mono;
+  }
+  .intl-tel-input,
+  .intl-tel-input:valid {
+    @apply w-full border-transparent mt-2;
+  }
+  #docsNavs {
+    height: "87vh";
+  }
+  #Editor ul {
+    @apply list-disc;
+  }
+  #Editor ol {
+    @apply list-decimal;
+  }
+  #Editor img {
+    @apply w-full h-auto block;
+  }
+  #Editor img.profil {
+    @apply w-10 h-10 rounded-full block mr-4;
+  }
+  #Editor img.poster {
+    @apply h-full w-full block;
+  }
+  #Editor {
+    @apply text-bpcidark text-opacity-90 font-medium;
+  }
+  #Editor table td {
+    @apply bg-transparent;
+  }
+  @screen md {
+    #docsNavs {
+      @apply h-screen;
+    }
+  }
+  #Name {
+    clip-path: url(#myCurveMob);
+  }
+  @screen lg {
+    #Name {
+      clip-path: url(#myCurve);
+    }
+  }
 }
